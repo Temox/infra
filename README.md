@@ -1,2 +1,2 @@
 # infra
-devop homeworks
+devops homeworks
