@@ -7,4 +7,3 @@
 /usr/bin/apt-get install -y mongodb-org
 
 /bin/systemctl start mongod && /bin/systemctl enable mongod
-/bin/systemctl status mongod | grep 'Active:'

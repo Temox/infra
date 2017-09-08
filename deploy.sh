@@ -1,11 +1,11 @@
 #!/bin/bash
 
-cd /home/appuser
+set -e
+
 su - appuser -c "[ -d /home/appuser/reddit ] || /usr/bin/git clone https://github.com/Artemmkin/reddit.git;
-                 sudo ln -s /home/appuser/.rvm/rubies/ruby-2.4.1/bin/* /bin/;
-                 cd /home/appuser/reddit && sudo bundle install;
-                 /home/appuser/.rvm/rubies/ruby-2.4.1/bin/puma -d;
-                 #ps aux | grep puma"
+                 source ~/.rvm/scripts/rvm;
+                 cd /home/appuser/reddit && bundle install;
+                 puma -d"
 
 /usr/sbin/ufw allow 9292
 /usr/sbin/ufw allow ssh
