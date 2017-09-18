@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu 
+  tasks:
+  
+  - name: Install vim
+    apt:
+      name: vim
+      update_cache: yes 
+    sudo: yes
