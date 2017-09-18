@@ -52,7 +52,7 @@
 
 # Deploy reddit app
 - name: "Reddit App: Deploy application"
-  hosts: reddit_app
+  hosts: all
   gather_facts: no
 
   tasks:
