@@ -8,23 +8,18 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-base-{{timestamp}}",
-      "image_description" : "Lesson7. Creating VM iamge",
+      "image_name" : "reddit-db-{{timestamp}}",
+      "image_description" : "Lesson9. DB server",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
       "ssh_username" : "appuser",
       "machine_type" : "{{user `machine_type`}}",
       "disk_size" : "10",
       "disk_type" : "pd-standard",
-      "network" : "default",
-      "tags" : ["puma-server"]
+      "network" : "default"
     }
   ],
   "provisioners" : [
-    {
-      "type" : "shell",
-      "script" : "scripts/install_ruby.sh"
-    },
     {
       "type" : "shell",
       "script" : "scripts/install_mongodb.sh",
