@@ -8,8 +8,9 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-ansible",
-      "image_description" : "Lesson10. Creating VM iamge using ansible playbook",
+      "image_name" : "reddit-app",
+      "image_description" : "Lesson10. Application server. Packed by packer + ansible",
+      "source_image_family" : "Ubuntu",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
       "ssh_username" : "appuser",
@@ -23,7 +24,7 @@
   "provisioners" : [
     {
       "type" : "ansible",
-      "playbook_file" : "../playbooks/reddit_app.yml"
+      "playbook_file" : "../ansible/packer_app.yml"
     }
   ]
 }
