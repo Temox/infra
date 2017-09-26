@@ -29,4 +29,5 @@ module "db" {
   db_firewall_rule_name = "${var.db_firewall_rule_name}"
   db_firewall_t_tags = "${var.db_firewall_t_tags}"
   db_firewall_s_tags = "${var.db_firewall_s_tags}"
+  db_address_ip_name = "${var.db_address_ip_name}"
 }

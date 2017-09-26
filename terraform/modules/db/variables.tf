@@ -34,3 +34,8 @@ variable db_firewall_s_tags {
   description = "Firewall source tags array for db-server"
   default = ["reddit-app"]
 }
+
+variable db_address_ip_name {
+  description = "Name of ip-address resource for db-server"
+  default = "reddit-db-ip"
+}

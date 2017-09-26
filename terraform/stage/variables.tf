@@ -38,7 +38,11 @@ variable app_firewall_t_tags {
 }
 
 variable app_address_ip_name {
-  description = "Name of ip-adress resource for app-server"
+  description = "Name of ip-address resource for app-server"
+}
+
+variable db_address_ip_name {
+  description = "Name of ip-addres resource for db-server"
 }
 
 variable db_instance_name {
