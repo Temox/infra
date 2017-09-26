@@ -8,9 +8,8 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-db",
-      "image_description" : "Lesson10. DataBase server. Packed by packer + ansible",
-      "source_image_family" : "Ubuntu",
+      "image_name" : "reddit-db-{{timestamp}}",
+      "image_description" : "Lesson9. DB server",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
       "ssh_username" : "appuser",
@@ -22,8 +21,9 @@
   ],
   "provisioners" : [
     {
-      "type" : "ansible",
-      "playbook_file" : "./ansible/packer_db.yml"
+      "type" : "shell",
+      "script" : "scripts/install_mongodb.sh",
+      "execute_command" : "sudo {{.Path}}"
     }
   ]
 }
