@@ -4,35 +4,34 @@ variable public_key_path {
 
 variable db_disk_image {
   description = "DB server disk image"
-  default     = "reddit-db-1505377831"
 }
 
 variable db_instance_name {
   description = "DB-server instance name"
-  default = "reddit-db"
+  default     = "reddit-db"
 }
 
-variable db_instance_tags{
-  type = "list"
+variable db_instance_tags {
+  type        = "list"
   description = "DB-instance's tags array"
-  default = ["reddit-db"]
+  default     = ["reddit-db"]
 }
 
-variable db_firewall_rule_name  {
+variable db_firewall_rule_name {
   description = "Firewall rule name for db-server"
-  default = "allow-mongo-default"
+  default     = "allow-mongo-default"
 }
 
 variable db_firewall_t_tags {
-  type = "list"
+  type        = "list"
   description = "Firewall target tags array for db-server"
-  default = ["reddit-db"]
+  default     = ["reddit-db"]
 }
 
 variable db_firewall_s_tags {
-  type = "list"
+  type        = "list"
   description = "Firewall source tags array for db-server"
-  default = ["reddit-app"]
+  default     = ["reddit-app"]
 }
 
 variable db_address_ip_name {

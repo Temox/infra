@@ -23,17 +23,17 @@ variable app_instance_name {
   description = "App-server instance name"
 }
 
-variable app_instance_tags{
-  type = "list"
+variable app_instance_tags {
+  type        = "list"
   description = "App-instance's tags array"
 }
 
-variable app_firewall_rule_name  {
+variable app_firewall_rule_name {
   description = "Firewall rule name for app-server"
 }
 
 variable app_firewall_t_tags {
-  type = "list"
+  type        = "list"
   description = "Firewall target tags array for app-server"
 }
 
@@ -49,22 +49,22 @@ variable db_instance_name {
   description = "DB-server instance name"
 }
 
-variable db_instance_tags{
-  type = "list"
+variable db_instance_tags {
+  type        = "list"
   description = "DB-instance's tags array"
 }
 
-variable db_firewall_rule_name  {
+variable db_firewall_rule_name {
   description = "Firewall rule name for db-server"
 }
 
 variable db_firewall_t_tags {
-  type = "list"
+  type        = "list"
   description = "Firewall target tags array for db-server"
 }
 
 variable db_firewall_s_tags {
-  type = "list"
+  type        = "list"
   description = "Firewall source tags array for db-server"
 }
 
@@ -75,4 +75,3 @@ variable source_ranges {
 variable ssh_rule_name {
   description = "SSH rule name"
 }
-
