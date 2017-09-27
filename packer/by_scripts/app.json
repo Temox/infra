@@ -8,22 +8,22 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-db",
-      "image_description" : "Lesson10. DataBase server. Packed by packer + ansible",
-      "source_image_family" : "Ubuntu",
+      "image_name" : "reddit-app-{{timestamp}}",
+      "image_description" : "Lesson9. App server",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
       "ssh_username" : "appuser",
       "machine_type" : "{{user `machine_type`}}",
       "disk_size" : "10",
       "disk_type" : "pd-standard",
-      "network" : "default"
+      "network" : "default",
+      "tags" : ["puma-server"]
     }
   ],
   "provisioners" : [
     {
-      "type" : "ansible",
-      "playbook_file" : "./ansible/packer_db.yml"
+      "type" : "shell",
+      "script" : "scripts/install_ruby.sh"
     }
   ]
 }
