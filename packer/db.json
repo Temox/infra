@@ -8,8 +8,9 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-db-{{timestamp}}",
-      "image_description" : "Lesson9. DB server",
+      "image_name" : "reddit-db-role",
+      "image_description" : "Lesson13. Create image using ansible role",
+      "source_image_family" : "Ubuntu",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
       "ssh_username" : "appuser",
@@ -22,7 +23,7 @@
   "provisioners" : [
     {
       "type" : "ansible",
-      "playbook_file" : "./ansible/db.yml"
+      "playbook_file" : "/home/temox/infra/ansible/packer_db.yml"
     }
   ]
 }
