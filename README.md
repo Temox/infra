@@ -1,6 +1,5 @@
 # Infra - Инфраструктурный репозиторий
 ## DevOps - практика
-
 ###Управление облачной инфраструкурой с помощью утилиты **gcloud**
 
 Создание ВМ с применением внешних startup скриптов.
@@ -16,3 +15,4 @@ gcloud compute instances create --boot-disk-size=10GB --image=ubuntu-1604-xenial
 gcloud compute firewall-rules create default-puma-server --source-ranges=0.0.0.0/0 --allow=tcp:9292 --target-tags=puma-server
 ```
 
+###Packer. Сборка образов.
