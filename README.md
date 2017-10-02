@@ -45,7 +45,7 @@ packer build -var 'project_id=*ID-проекта_в_облаке*' -var 'source_
 ```
 terraform/
 ├── files
-│   ├── deploy.sh               
+│   ├── deploy.sh                 - shell-скрпит деплоя [приложения](https://github.com/Artemmkin/reddit.git)
 │   └── puma.service
 ├── modules
 │   ├── app
