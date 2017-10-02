@@ -42,34 +42,33 @@ packer build -var 'project_id=*ID-проекта_в_облаке*' -var 'source_
 *Terraform* - ПО позволяющее описать требуемуе состояние инфраструктуры, с момента создания виртуального сервера и добавления правил firewall, до деплоя самого приложения.
 
 *./terraform* - описание создания prod и stage инфрастуктуры. Включает в себя создание серверов БД и серверов приложений.
+
 ```
 terraform/
 ├── files
-│   ├── deploy.sh                 - shell-скрпит деплоя [приложения](https://github.com/Artemmkin/reddit.git)
-│   └── puma.service
-├── modules
-│   ├── app
-│   │   ├── main.tf
-│   │   ├── outputs.tf
-│   │   └── variables.tf
-│   ├── db
-│   │   ├── main.tf
-│   │   ├── outputs.tf
-│   │   └── variables.tf
-│   └── vpc
-│       ├── main.tf
-│       └── variables.tf
-├── prod
-│   ├── main.tf
-│   ├── outputs.tf
-│   ├── outputs.tf_
-│   └── variables.tf
-└── stage
-    ├── main.tf
-    ├── outputs.tf
-    ├── outputs.tf_
-    ├── terraform.tfstate
-    ├── terraform.tfstate.backup
-    ├── terraform.tfvars
-    └── variables.tf
+│   ├── deploy.sh                 - shell-скрпит деплоя приложения
+│   └── puma.service              - unit-файл для запуска приложения
+```
+
+Создание сервера-приложения, сервера-БД и настройка облачного firewall'а описаны в виде модулей
+```
+── modules
+   ├── app
+   ├── db
+   └── vpc
+```
+
+```
+── prod
+   ├── main.tf
+   ├── outputs.tf
+   ├── outputs.tf_
+   └── variables.tf
+```
+```
+── stage
+   ├── main.tf
+   ├── outputs.tf
+   ├── outputs.tf_
+   └── variables.tf
 ```
