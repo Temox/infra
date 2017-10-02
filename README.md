@@ -43,14 +43,14 @@ packer build -var 'project_id=*ID-проекта_в_облаке*' -var 'source_
 
 *./terraform* - описание создания prod и stage инфрастуктуры. Включает в себя создание серверов БД и серверов приложений.
 
-terraform/
-├── files
-│   ├── deploy.sh               
-│   └── puma.service
-├── modules
-│   ├── app
-│   │   ├── main.tf
-│   │   ├── outputs.tf
+`terraform/
+`├── files
+`│   ├── deploy.sh               
+`│   └── puma.service
+`├── modules
+`│   ├── app
+`│   │   ├── main.tf
+`│   │   ├── outputs.tf
 │   │   └── variables.tf
 │   ├── db
 │   │   ├── main.tf
