@@ -77,3 +77,18 @@ terraform/
 
 ### Ansible. Управление конфигурацией.
 
+Ansible использует конфигурционный файл в соответсвующей дирректории:
+```
+── ansible
+   └── ansible.cfg
+```
+В данном примере указаны лишь основные параметры:
+```
+  [defaults]
+  hostfile = ./environments/stage/hosts
+  remote_user = appuser
+  private_key_file = ~/.ssh/appuser
+  host_key_checking = False
+```
+
+Выполнены различные варианты подготовки серверной инфраструктуры
