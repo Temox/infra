@@ -111,5 +111,52 @@ Ansible использует конфигурционный файл в соот
     └── site.yml
  ```
    и использование _packer_ для подготовки образов на основе ролей:
+   ```
     ├── packer_app.yml
     ├── packer_db.yml
+   ```
+Для создания stag и prod стендов используется _environment_, где описано создание каждого из стендов и определены соответвующие переменные, на основе групп хостов:
+```
+environment
+  ├── prod
+  │   ├── group_vars
+  │   │   ├── all
+  │   │   ├── app
+  │   │   └── db
+  │   └── hosts
+  └── stage
+      ├── group_vars
+      │   ├── all
+      │   ├── app
+      │   └── db
+      └── hosts
+```
+
+### Vagrant. Создание локальных ВМ на основе рецептов.
+В данном файле описано создание инфраструктуры, локально, на рабочей машине, с использованием *Vagrant*, для создания ВМ и *Ansible playbooks*, для их настройки:
+```
+├── ansible
+    └── Vagrantfile
+```
+
+### Molecule. Testinfra. Тестирование Ansible ролей.
+Для тестирования подготовленной роли использовалось ПО _Molecule_
+Описание выполняемых скриптов производится в db/molecule/default/tests/test_default.py
+
+```
+── roles
+   └── db
+       └── molecule
+          └── default
+              ├── create.yml
+              ├── destroy.yml
+              ├── INSTALL.rst
+              ├── molecule.yml
+              ├── playbook.yml
+              ├── tests
+              │   ├── __pycache__
+              │   │   └── test_default.cpython-27-PYTEST.pyc
+              │   ├── test_default.py
+              │   └── test_default.pyc
+              └── ubuntu-xenial-16.04-cloudimg-console.log
+```
