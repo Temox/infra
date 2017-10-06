@@ -9,5 +9,8 @@
 *.retry
 
 #Vargant
-.vargant/
+.vagrant/
 *.logs
+
+#Molecule
+molecule
