@@ -1,6 +1,16 @@
+#Terraform
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
+
+#Ansible
 *.retry
+
+#Vargant
+.vagrant/
+*.logs
+
+#Molecule
+.molecule

@@ -8,8 +8,8 @@
     {
       "type" : "googlecompute",
       "project_id" : "{{user `project_id`}}",
-      "image_name" : "reddit-app",
-      "image_description" : "Lesson10. Application server. Packed by packer + ansible",
+      "image_name" : "reddit-app-role",
+      "image_description" : "Lesson13. Create image using ansible role",
       "source_image_family" : "Ubuntu",
       "source_image" : "{{user `source_image`}}",
       "zone" : "europe-west1-b",
@@ -24,7 +24,7 @@
   "provisioners" : [
     {
       "type" : "ansible",
-      "playbook_file" : "./ansible/packer_app.yml"
+      "playbook_file" : "/home/temox/infra/ansible/packer_app.yml"
     }
   ]
 }

@@ -46,16 +46,16 @@ packer build -var 'project_id=*ID-проекта_в_облаке*' -var 'source_
 ```
 terraform/
 ── files
-   ├── deploy.sh                 - shell-скрпит деплоя приложения
-   └── puma.service              - unit-файл для запуска приложения
+   ├── deploy.sh                 - shell-скрпит деплоя приложения
+   └── puma.service              - unit-файл для запуска приложения
 ```
 
 Создание сервера-приложения, сервера-БД и настройка облачного firewall'а описаны в виде модулей:
 ```
 ── modules
-   ├── app  - создание сервера приложений
-   ├── db   - создание сервера БД
-   └── vpc  - настройка VPC
+   ├── app  - создание сервера приложений
+   ├── db   - создание сервера БД
+   └── vpc  - настройка VPC
 ```
 Каждый модуль описан тремя файлами:
 
@@ -66,8 +66,8 @@ terraform/
 Создание _prod_ и _stage_ стендов:
 ```
 ── terraform
-   ├── prod
-   └── stage
+   ├── prod
+   └── stage
 ```
 Описание стендов
 * *main.tf*       - содержит кастомизированое описание вызова модулей app-сервера, db-сервера и vpc
@@ -98,7 +98,7 @@ Ansible использует конфигурционный файл в соот
   _packer_reddit_db.yml_
 * Общий _playbook_ для подготовки серверов и выполнения деполя, с использованием тегов:
   _reddit_app_one_play.yml_
-* Общий _playbook_ для подготовки серверов и выполнения деполя, с использованием нескольких task'ов:
+* Общий _playbook_ для подготовки серверов и выполнения деполя, с использованием нескольких сценариев:
   _reddit_app_multiple_plays.yml_
 * Создание роли:
 ```
@@ -106,8 +106,9 @@ Ansible использует конфигурционный файл в соот
     ├── app.yml
     ├── db.yml
     ├── roles
-    │   ├── app
-    │   └── db
+
+    │   ├── app
+    │   └── db
     └── site.yml
  ```
    и использование _packer_ для подготовки образов на основе ролей:
@@ -115,24 +116,24 @@ Ansible использует конфигурционный файл в соот
     ├── packer_app.yml
     ├── packer_db.yml
    ```
-Для создания stag и prod стендов используется _environment_, где описано создание каждого из стендов и определены соответвующие переменные, на основе групп хостов:
+Для управления конфигурацией stag и prod стендов используется _environment_, где описано создание каждого из стендов и определены соответвующие переменные, на основе групп хостов:
 ```
 environment
   ├── prod
-  │   ├── group_vars
-  │   │   ├── all
-  │   │   ├── app
-  │   │   └── db
-  │   └── hosts
+  │   ├── group_vars
+  │   │   ├── all
+  │   │   ├── app
+  │   │   └── db
+  │   └── hosts
   └── stage
       ├── group_vars
-      │   ├── all
-      │   ├── app
-      │   └── db
+      │   ├── all
+      │   ├── app
+      │   └── db
       └── hosts
 ```
 
-### Vagrant. Создание локальных ВМ на основе рецептов.
+### Vagrant. Создание локального окружения на основе рецептов.
 В данном файле описано создание инфраструктуры, локально, на рабочей машине, с использованием *Vagrant*, для создания ВМ и *Ansible playbooks*, для их настройки:
 ```
 ├── ansible
@@ -140,23 +141,23 @@ environment
 ```
 
 ### Molecule. Testinfra. Тестирование Ansible ролей.
-Для тестирования подготовленной роли использовалось ПО _Molecule_
+Для тестирования подготовленной роли использовалось ПО _Molecule_. Фреймворк _Testinfra_ ипользуется для выполнения тестов написаных на python.
 Описание выполняемых скриптов производится в db/molecule/default/tests/test_default.py
 
 ```
 ── roles
-   └── db
-       └── molecule
-          └── default
-              ├── create.yml
-              ├── destroy.yml
-              ├── INSTALL.rst
-              ├── molecule.yml
-              ├── playbook.yml
-              ├── tests
-              │   ├── __pycache__
-              │   │   └── test_default.cpython-27-PYTEST.pyc
-              │   ├── test_default.py
-              │   └── test_default.pyc
-              └── ubuntu-xenial-16.04-cloudimg-console.log
+   └── db
+       └── molecule
+          └── default
+              ├── create.yml
+              ├── destroy.yml
+              ├── INSTALL.rst
+              ├── molecule.yml
+              ├── playbook.yml
+              ├── tests
+              │   ├── __pycache__
+              │   │   └── test_default.cpython-27-PYTEST.pyc
+              │   ├── test_default.py
+              │   └── test_default.pyc
+              └── ubuntu-xenial-16.04-cloudimg-console.log
 ```
