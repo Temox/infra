@@ -13,7 +13,9 @@ resource "google_compute_instance" "db" {
   network_interface {
     network = "default"
 
-    access_config = {}
+    access_config = {
+      #nat_ip = "${google_compute_address.db_ip.address}"
+    }
   }
 
   metadata {
@@ -40,3 +42,7 @@ resource "google_compute_firewall" "firewall_mongo" {
   target_tags = "${var.db_firewall_t_tags}"
   source_tags = "${var.db_firewall_s_tags}"
 }
+
+#resource "google_compute_address" "db_ip"{
+#  name = "${var.db_address_ip_name}"
+#}

@@ -106,6 +106,7 @@ Ansible использует конфигурционный файл в соот
     ├── app.yml
     ├── db.yml
     ├── roles
+
     │   ├── app
     │   └── db
     └── site.yml
